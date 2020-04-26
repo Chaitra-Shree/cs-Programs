@@ -1,0 +1,52 @@
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+     int min(int a,int b){
+            return (a<b)?a:b;
+        }
+        int max(int a,int b){
+            return (a>b)?a:b;
+        }
+    public int maximumGap(final int[] A) {
+        
+       
+        
+        //int maxdiff;
+        int n=A.length;
+        
+        int rmax[] = new int[n];
+        int lmin[] = new int[n];
+        
+        lmin[0] = A[0];
+        for(int i = 1 ; i<n ; i++){
+            lmin[i]=min(lmin[i],lmin[i-1]);
+        }
+        
+        rmax[n-1] = A[n-1];
+        for(int j = n-2 ; j>=0 ; j--){
+            rmax[j]=max(rmax[j],rmax[j+1]);
+        }
+        
+        int i =0,j=0,maxdiff=-1;
+        while(j<n && i<n){
+            if(A[i]<=A[j]){
+                maxdiff=max(maxdiff,j-i);
+                j++;
+            }
+            else 
+                i++;
+        }
+        /*int n = A.length;
+        int max = -1;
+        for(int i = 0; i < A.length ; i++){
+            for(int j = n-1 ; j<1 ; j++){
+                if(A[i]<=A[j] && max<j-i){
+                    max = j-i;
+                   // int flag = 1;
+                }
+            }
+        }
+        
+    return (max>0)?max:((max==0)?0:-1);*/
+       return maxdiff; 
+    }
+}
