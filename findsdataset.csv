@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Sep 19 10:22:40 2020
+
+@author: 
+"""
+sunny,warm,normal,strong,warm,same,true,
+sunny,warm,high,strong,warm,same,true,
+rainy,cold,high,strong,warm,change,false,
+sunny,warm,high,strong,cool,change,true
